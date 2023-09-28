@@ -2,7 +2,7 @@ import csv
 from datetime import datetime as dt
 
 from pep_parse.constants import (
-    ENCODING, DATETIME_FORMAT, RESULT_DIR
+    ENCODING, DATETIME_FORMAT, BASE_DIR
 )
 
 
@@ -25,7 +25,7 @@ class PepParsePipeline:
         now = dt.now()
         now_formatted = now.strftime(DATETIME_FORMAT)
         status_file_name = f'status_summary_{now_formatted}.csv'
-        status_path = RESULT_DIR / status_file_name
+        status_path = BASE_DIR / status_file_name
         with open(status_path, 'w', encoding=ENCODING) as f:
             writer = csv.writer(f, dialect='unix')
             writer.writerow(('Статус', 'Количество'))
