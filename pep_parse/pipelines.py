@@ -2,7 +2,7 @@ import csv
 from datetime import datetime as dt
 
 from pep_parse.constants import (
-    BASE_DIR, ENCODING, DATETIME_FORMAT
+    ENCODING, DATETIME_FORMAT, RESULT_DIR
 )
 
 
@@ -22,12 +22,10 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        result_dir = BASE_DIR / 'results'
-        result_dir.mkdir(exist_ok=True)
         now = dt.now()
         now_formatted = now.strftime(DATETIME_FORMAT)
         status_file_name = f'status_summary_{now_formatted}.csv'
-        status_path = result_dir / status_file_name
+        status_path = RESULT_DIR / status_file_name
         with open(status_path, 'w', encoding=ENCODING) as f:
             writer = csv.writer(f, dialect='unix')
             writer.writerow(('Статус', 'Количество'))
