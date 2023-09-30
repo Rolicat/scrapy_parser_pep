@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from scrapy import signals, Crawler, Spider
 from scrapy.http import Response, Request
 
@@ -5,7 +7,7 @@ from scrapy.http import Response, Request
 class PepParseSpiderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler):
+    def from_crawler(cls, crawler: Crawler) -> PepParseSpiderMiddleware:
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
@@ -37,7 +39,7 @@ class PepParseSpiderMiddleware:
 class PepParseDownloaderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler):
+    def from_crawler(cls, crawler: Crawler) -> PepParseDownloaderMiddleware:
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s

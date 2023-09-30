@@ -1,8 +1,9 @@
-import scrapy
-from scrapy.http import Response
-from pep_parse.items import PepParseItem
 import re
 
+import scrapy
+from scrapy.http import Response
+
+from pep_parse.items import PepParseItem
 from pep_parse.constants import PATTERN, DOMAIN
 from pep_parse.css_tags import CSSSelector
 

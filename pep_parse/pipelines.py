@@ -1,6 +1,7 @@
-from scrapy import Spider
 import csv
 from datetime import datetime as dt
+
+from scrapy import Spider
 
 from pep_parse.items import PepParseItem
 from pep_parse.constants import (
