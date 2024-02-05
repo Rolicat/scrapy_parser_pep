@@ -7,8 +7,11 @@
 - https://peps.python.org/
 
 и скачать эту информацию в csv файл. Даже 2.
+
 ## Стек
+
 python3.8+, scrapy
+
 ## Режимы запуска
 
 scrapy crawl pep
